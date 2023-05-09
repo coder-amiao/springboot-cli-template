@@ -1,7 +1,7 @@
 package cn.soboys.springbootrestfulapi.common.resp;
 
 import cn.hutool.core.date.DateUtil;
-import cn.soboys.springbootrestfulapi.common.error.ErrorCode;
+import cn.soboys.springbootrestfulapi.common.error.ErrorDetail;
 import lombok.Data;
 import lombok.Getter;
 
@@ -16,17 +16,15 @@ import java.util.Map;
  * 统一响应结果处理  使用链式编程 返回类本身
  */
 @Getter
+@Data
 public class R {
 
     private Boolean success;
 
-    private Integer code;
+    private String code;
 
     private String message;
 
-    private String request;
-
-    private String errorMsg;
 
     /**
      * 接口请求时间戳
@@ -48,27 +46,18 @@ public class R {
         return this;
     }
 
-    private R setErrorMsg(String errorMsg) {
-        this.errorMsg = errorMsg;
-        return this;
-    }
-
-    private R setRequest(String request) {
-        this.request = request;
-        return this;
-    }
 
     private R setData(Map<String, Object> data) {
         this.data = data;
         return this;
     }
 
-    private R setCode(Integer code) {
+    private R setCode(String code) {
         this.code = code;
         return this;
     }
 
-    private R() {
+    public R() {
     }
 
     private R(String timestamp) {
@@ -83,11 +72,12 @@ public class R {
      */
     public static R success() {
         return new R(DateUtil.now())
-                .setSuccess(ResultCodeEnum.SUCCESS.getSuccess())
-                .setCode(ResultCodeEnum.SUCCESS.getCode())
-                .setMessage(ResultCodeEnum.SUCCESS.getMessage());
+                .setSuccess(ResultSuccess.SUCCESS.getSuccess())
+                .setCode(ResultSuccess.SUCCESS.getCode())
+                .setMessage(ResultSuccess.SUCCESS.getMessage());
 
     }
+
 
     /**
      * 通用返回失败
@@ -96,12 +86,13 @@ public class R {
      */
     public static R failure() {
         return new R(DateUtil.now())
-                .setSuccess(ResultCodeEnum.FAIL.getSuccess())
-                .setCode(ResultCodeEnum.FAIL.getCode())
-                .setMessage(ResultCodeEnum.FAIL.getMessage())
+                .setSuccess(ResultSuccess.FAIL.getSuccess())
+                .setCode(ResultSuccess.FAIL.getCode())
+                .setMessage(ResultSuccess.FAIL.getMessage())
                 .setData(null);
 
     }
+
 
     /**
      * 设置结果，形参为结果枚举
@@ -109,12 +100,12 @@ public class R {
      * @param result
      * @return
      */
-    public static R setResult(ErrorCode result) {
+    public static R setResult(ResultCode result) {
         return new R(DateUtil.now())
                 .setSuccess(result.getSuccess())
                 .setCode(result.getCode())
-                .setMessage(result.getMessage())
-                .setData(null);
+                .setMessage(result.getMessage());
+
 
     }
 
@@ -141,7 +132,7 @@ public class R {
     }
 
     // 自定义状态码
-    public R code(Integer code) {
+    public R code(String code) {
         return this.setCode(code);
 
     }
@@ -151,18 +142,4 @@ public class R {
         return this.setSuccess(success);
 
     }
-
-
-    // 自定义返回错误结果
-    public R errorMsg(String errorMsg) {
-        return this.setErrorMsg(errorMsg);
-
-    }
-
-    // 自定义返回请求
-    public R request(String request) {
-        return this.setRequest(request);
-
-    }
-
 }

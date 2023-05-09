@@ -1,22 +1,34 @@
 package cn.soboys.springbootrestfulapi.common.error;
 
+import cn.soboys.springbootrestfulapi.common.resp.ResultCode;
+
 /**
  * @author 公众号 程序员三时
  * @version 1.0
  * @date 2023/5/2 21:36
  * @webSite https://github.com/coder-amiao
  */
-public enum CommonErrorCode implements ErrorCode {
+public enum CommonErrorCode implements ResultCode {
 
-    NOT_FOUND(false, 404, "接口不存在"),
-    FORBIDDEN(false, 403, "资源拒绝访问"),
-    UNAUTHORIZED(false, 401, "未认证（签名错误）"),
-    INTERNAL_SERVER_ERROR(false, 500, "服务网络不可用"),
-    PARAM_ERROR(false, 110001, "参数错误");
+    /**
+     * 错误请求
+     */
+    INVALID_REQUEST(false, CommonErrorConstant.InvalidRequest, "Invalid request, for reason: "),
+    /**
+     * 参数验证错误
+     */
+    INVALID_ARGUMENT(false, CommonErrorConstant.InvalidArgument, "Validation failed for argument "),
+    /**
+     * 未找到资源
+     */
+    NOT_FOUND(false, CommonErrorConstant.NotFound, "Resource  not found."),
+    /**
+     * 未知错误
+     */
+    UNKNOWN_ERROR(false, CommonErrorConstant.UnknownError, "Unknown server internal error.");
 
 
-
-    CommonErrorCode(Boolean success, Integer code, String message) {
+    CommonErrorCode(Boolean success, String code, String message) {
         this.success = success;
         this.code = code;
         this.message = message;
@@ -30,7 +42,7 @@ public enum CommonErrorCode implements ErrorCode {
     /**
      * 响应状态码
      */
-    private Integer code;
+    private String code;
     /**
      * 响应信息
      */
@@ -38,7 +50,7 @@ public enum CommonErrorCode implements ErrorCode {
 
 
     @Override
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
 

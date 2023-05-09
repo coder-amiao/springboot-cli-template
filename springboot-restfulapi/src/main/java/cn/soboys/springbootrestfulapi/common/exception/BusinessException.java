@@ -1,7 +1,7 @@
 package cn.soboys.springbootrestfulapi.common.exception;
 
 
-import cn.soboys.springbootrestfulapi.common.resp.ResultCodeEnum;
+import cn.soboys.springbootrestfulapi.common.resp.ResultSuccess;
 import lombok.Data;
 
 /**
@@ -16,14 +16,14 @@ public class BusinessException extends RuntimeException {
     /**
      * 自定义异常编码
      */
-    private Integer code;
+    private String code;
 
-    public BusinessException(Integer code, String message) {
+    public BusinessException(String code, String message) {
         super(message);
         this.code = code;
     }
 
-    public BusinessException(ResultCodeEnum resultCodeEnum) {
+    public BusinessException(ResultSuccess resultCodeEnum) {
         super(resultCodeEnum.getMessage());
         this.code = resultCodeEnum.getCode();
     }

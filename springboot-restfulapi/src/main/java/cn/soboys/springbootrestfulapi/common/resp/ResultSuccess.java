@@ -1,9 +1,6 @@
 package cn.soboys.springbootrestfulapi.common.resp;
 
-import cn.soboys.springbootrestfulapi.common.error.ErrorCode;
-import lombok.Data;
-import lombok.Getter;
-import org.springframework.web.bind.annotation.GetMapping;
+import cn.soboys.springbootrestfulapi.common.error.CommonErrorConstant;
 
 /**
  * @author 公众号 程序员三时
@@ -12,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @webSite https://github.com/coder-amiao
  * 响应结果枚举
  */
-public enum ResultCodeEnum implements ErrorCode {
+public enum ResultSuccess implements ResultCode {
 
 
-    SUCCESS(true, 200, "成功"),
+    SUCCESS(true, CommonErrorConstant.OK, "成功"),
 
-    FAIL(false, 400, "请求失败");
+    FAIL(false, CommonErrorConstant.FAIL, "请求失败");
 
 
     /**
@@ -27,7 +24,7 @@ public enum ResultCodeEnum implements ErrorCode {
     /**
      * 响应状态码
      */
-    private Integer code;
+    private String code;
     /**
      * 响应信息
      */
@@ -35,7 +32,7 @@ public enum ResultCodeEnum implements ErrorCode {
 
 
     @Override
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -50,7 +47,7 @@ public enum ResultCodeEnum implements ErrorCode {
     }
 
 
-    ResultCodeEnum(Boolean success, Integer code, String message) {
+    ResultSuccess(Boolean success, String code, String message) {
         this.success = success;
         this.code = code;
         this.message = message;

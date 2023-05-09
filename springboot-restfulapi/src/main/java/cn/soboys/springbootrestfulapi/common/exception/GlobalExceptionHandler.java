@@ -2,17 +2,22 @@ package cn.soboys.springbootrestfulapi.common.exception;
 
 
 import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.util.StrUtil;
 import cn.soboys.springbootrestfulapi.common.error.CommonErrorCode;
+import cn.soboys.springbootrestfulapi.common.error.ErrorDetail;
 import cn.soboys.springbootrestfulapi.common.resp.R;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -34,14 +39,17 @@ public class GlobalExceptionHandler {
      * 通用异常处理方法
      **/
     @ExceptionHandler(Exception.class)
-    @ResponseBody
-    public R error(Exception e, WebRequest request) {
+    public ErrorDetail exception(Exception e, WebRequest request) {
         e.printStackTrace();
-        return R.setResult(CommonErrorCode.INTERNAL_SERVER_ERROR)
-                .request(request.getDescription(true))
-                .errorMsg(e.getMessage());
-    }
+        ErrorDetail errorDetail = new ErrorDetail();
+        errorDetail.setDetails(request.getDescription(true));
+        errorDetail.setErrorMsg(e.getMessage());
+        errorDetail.setMessage(CommonErrorCode.UNKNOWN_ERROR.getMessage());
+        errorDetail.setCode(CommonErrorCode.UNKNOWN_ERROR.getCode());
+        errorDetail.setSuccess(CommonErrorCode.UNKNOWN_ERROR.getSuccess());
+        return errorDetail;
 
+    }
 
 
     /**
@@ -51,18 +59,21 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public R BindExceptionHandler(BindException e) {
         String message = e.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
-        return R.failure().code(CommonErrorCode.PARAM_ERROR.getCode()).message(message);
+        return R.failure().code(CommonErrorCode.INVALID_ARGUMENT.getCode())
+                .message(CommonErrorCode.INVALID_ARGUMENT.getMessage() + message);
     }
 
     /**
      * 处理Get请求中 验证路径中 单个参数请求失败抛出异常
+     *
      * @param e
      * @return
      */
     @ExceptionHandler(ConstraintViolationException.class)
     public R ConstraintViolationExceptionHandler(ConstraintViolationException e) {
         String message = e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining());
-        return R.failure().code(CommonErrorCode.PARAM_ERROR.getCode()).message(message);
+        return R.failure().code(CommonErrorCode.INVALID_ARGUMENT.getCode())
+                .message(CommonErrorCode.INVALID_ARGUMENT.getMessage() + message);
     }
 
 
@@ -72,13 +83,48 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public R jsonParamsException(MethodArgumentNotValidException e) {
         BindingResult bindingResult = e.getBindingResult();
-        String msg=";";
+        String msg = ";";
 
         for (FieldError fieldError : bindingResult.getFieldErrors()) {
-             msg = String.format("%s%s；", fieldError.getField(), fieldError.getDefaultMessage())+msg;
+            msg = String.format("%s%s；", fieldError.getField(), fieldError.getDefaultMessage()) + msg;
         }
-        return R.failure().code(CommonErrorCode.PARAM_ERROR.getCode()).message(msg);
+        return R.failure().code(CommonErrorCode.INVALID_ARGUMENT.getCode())
+                .message(CommonErrorCode.INVALID_ARGUMENT.getMessage() + msg);
     }
+
+
+    /**
+     * 接口不存在
+     *
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(NoHandlerFoundException.class)
+    @ResponseBody
+    public R error(NoHandlerFoundException e) {
+        e.printStackTrace();
+        return R.failure().code(CommonErrorCode.NOT_FOUND.getCode()).message(CommonErrorCode.NOT_FOUND.getMessage());
+    }
+
+    /**
+     * 请求方法不被允许异常
+     */
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public R httpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
+        return R.failure().code(CommonErrorCode.INVALID_REQUEST.getCode()).message(CommonErrorCode.INVALID_REQUEST.getMessage() + e.getMessage());
+    }
+
+    /**
+     * @param e
+     * @return Content-Type/Accept 异常
+     * application/json
+     * application/x-www-form-urlencoded
+     */
+    @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
+    public R httpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException e) {
+        return R.failure().code(CommonErrorCode.INVALID_REQUEST.getCode()).message(CommonErrorCode.INVALID_REQUEST.getMessage() + e.getMessage());
+    }
+
 
     /**
      * 自定义异常处理方法
@@ -90,7 +136,8 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public R error(BusinessException e) {
         e.printStackTrace();
-        return R.failure().message(e.getMessage()).code(e.getCode());
+        return R.failure().code(e.getCode()).message(e.getMessage());
     }
+
 
 }
