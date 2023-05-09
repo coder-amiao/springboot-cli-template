@@ -1,10 +1,5 @@
 package cn.soboys.springbootrestfulapi.common.error;
-
-import cn.soboys.springbootrestfulapi.common.resp.R;
-import cn.soboys.springbootrestfulapi.common.resp.ResultCode;
 import lombok.Data;
-import org.springframework.web.context.request.WebRequest;
-
 /**
  * @author 公众号 程序员三时
  * @version 1.0
@@ -35,4 +30,8 @@ public class ErrorDetail {
     private String errorMsg;
 
 
+    /**
+     * 接口请求时间戳
+     */
+    private String timestamp;
 }

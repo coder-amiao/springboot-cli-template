@@ -2,6 +2,7 @@ package cn.soboys.springbootrestfulapi.common.exception;
 
 
 import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.soboys.springbootrestfulapi.common.error.CommonErrorCode;
 import cn.soboys.springbootrestfulapi.common.error.ErrorDetail;
@@ -47,6 +48,7 @@ public class GlobalExceptionHandler {
         errorDetail.setMessage(CommonErrorCode.UNKNOWN_ERROR.getMessage());
         errorDetail.setCode(CommonErrorCode.UNKNOWN_ERROR.getCode());
         errorDetail.setSuccess(CommonErrorCode.UNKNOWN_ERROR.getSuccess());
+        errorDetail.setTimestamp(DateUtil.now());
         return errorDetail;
 
     }
