@@ -16,7 +16,6 @@ import java.util.Map;
  * 统一响应结果处理  使用链式编程 返回类本身
  */
 @Getter
-@Data
 public class R {
 
     private Boolean success;
@@ -57,11 +56,42 @@ public class R {
         return this;
     }
 
-    public R() {
+    private R() {
     }
 
     private R(String timestamp) {
         this.timestamp = timestamp;
+    }
+
+
+    // 自定义返回数据
+    public R data(Map<String, Object> map) {
+        return this.setData(map);
+
+    }
+
+    // 通用设置data
+    public R data(String key, Object value) {
+        this.data.put(key, value);
+        return this;
+    }
+
+    // 自定义状态信息
+    public R message(String message) {
+        return this.setMessage(message);
+
+    }
+
+    // 自定义状态码
+    public R code(String code) {
+        return this.setCode(code);
+
+    }
+
+    // 自定义返回结果
+    public R success(Boolean success) {
+        return this.setSuccess(success);
+
     }
 
 
@@ -106,40 +136,6 @@ public class R {
                 .setCode(result.getCode())
                 .setMessage(result.getMessage());
 
-
-    }
-
-
-
-
-
-    // 自定义返回数据
-    public R data(Map<String, Object> map) {
-        return this.setData(map);
-
-    }
-
-    // 通用设置data
-    public R data(String key, Object value) {
-        this.data.put(key, value);
-        return this;
-    }
-
-    // 自定义状态信息
-    public R message(String message) {
-        return this.setMessage(message);
-
-    }
-
-    // 自定义状态码
-    public R code(String code) {
-        return this.setCode(code);
-
-    }
-
-    // 自定义返回结果
-    public R success(Boolean success) {
-        return this.setSuccess(success);
 
     }
 }
