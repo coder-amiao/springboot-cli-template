@@ -7,6 +7,7 @@ import cn.soboys.springbootrestfulapi.common.resp.ResultCode;
  * @version 1.0
  * @date 2023/5/2 21:36
  * @webSite https://github.com/coder-amiao
+ * 通用公共错误枚举模块
  */
 public enum CommonErrorCode implements ResultCode {
 

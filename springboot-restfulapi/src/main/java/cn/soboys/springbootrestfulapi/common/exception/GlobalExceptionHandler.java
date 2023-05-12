@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
  * @version 1.0
  * @date 2023/4/29 00:21
  * @webSite https://github.com/coder-amiao
- * 统一异常处理器
+ * 全局统一异常处理器
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {

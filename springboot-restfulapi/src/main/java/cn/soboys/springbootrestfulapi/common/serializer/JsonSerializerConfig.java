@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @version 1.0
  * @date 2023/4/29 23:27
  * @webSite https://github.com/coder-amiao
- * 注册自定义json序列化器
+ * 注册自定义json序列化器 配置文件
  */
 @Configuration
 public class JsonSerializerConfig {
@@ -18,7 +18,8 @@ public class JsonSerializerConfig {
     public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         SimpleModule module = new SimpleModule();
-        module.addSerializer(Double.class, new DoubleValueSerializer());
+
+        module.addSerializer(Double.class, new DoubleValueSerializer());// 注册自定义double类型序列化器
         objectMapper.registerModule(module);
         return objectMapper;
     }

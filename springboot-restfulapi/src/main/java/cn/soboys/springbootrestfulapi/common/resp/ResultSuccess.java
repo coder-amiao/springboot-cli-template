@@ -7,7 +7,7 @@ import cn.soboys.springbootrestfulapi.common.error.CommonErrorConstant;
  * @version 1.0
  * @date 2023/4/28 22:39
  * @webSite https://github.com/coder-amiao
- * 响应结果枚举
+ * 成功响应结果枚举
  */
 public enum ResultSuccess implements ResultCode {
 
