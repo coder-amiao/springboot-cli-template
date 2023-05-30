@@ -1,13 +1,15 @@
 package cn.soboys.springbootrestfulapi.common.exception;
 
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.soboys.springbootrestfulapi.common.error.BusinessErrorCode;
 import cn.soboys.springbootrestfulapi.common.error.CommonErrorCode;
 import cn.soboys.springbootrestfulapi.common.error.ErrorDetail;
 import cn.soboys.springbootrestfulapi.common.resp.R;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -20,9 +22,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import javax.validation.Path;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -31,13 +36,15 @@ import java.util.stream.Collectors;
  * @version 1.0
  * @date 2023/4/29 00:21
  * @webSite https://github.com/coder-amiao
- * 全局统一异常处理器
+ * 统一异常处理器
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     /**
-     * 通用异常处理方法
+     * 未知错误异常处理方法
+     * <p>
+     * 这里需根据业务打印错误日志输出到对应平台
      **/
     @ExceptionHandler(Exception.class)
     public ErrorDetail exception(Exception e, WebRequest request) {
@@ -55,48 +62,74 @@ public class GlobalExceptionHandler {
 
 
     /**
-     * 处理 form data方式调用接口对象参数校验失败抛出的异常
+     * post 请求
+     * 处理 x-www-form-urlencoded 类型参数 解析验证异常
+     * 提交的数据按照 key1=val1&key2=val2 的方式进行编码，key 和 val 都进行了 URL 转码
      */
     @ExceptionHandler(BindException.class)
     @ResponseBody
     public R BindExceptionHandler(BindException e) {
-        String message = e.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
+        List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
+        List<String> collect = fieldErrors.stream()
+                .map(o -> o.getField() + o.getDefaultMessage())
+                .collect(Collectors.toList());
+
         return R.failure().code(CommonErrorCode.INVALID_ARGUMENT.getCode())
-                .message(CommonErrorCode.INVALID_ARGUMENT.getMessage() + message);
+                .message(CommonErrorCode.INVALID_ARGUMENT.getMessage() + " "
+                        + CollUtil.join(collect, ";"));
     }
 
     /**
-     * 处理Get请求中 验证路径中 单个参数请求失败抛出异常
+     * Get请求中  单个参数 验证 失败异常
      *
      * @param e
      * @return
      */
     @ExceptionHandler(ConstraintViolationException.class)
     public R ConstraintViolationExceptionHandler(ConstraintViolationException e) {
-        String message = e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining());
+        List errorList = CollectionUtil.newArrayList();
+        Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+        for (ConstraintViolation<?> violation : violations) {
+            StringBuilder message = new StringBuilder();
+            Path path = violation.getPropertyPath();
+            String[] pathArr = StrUtil.splitToArray(path.toString(), ".");
+            String msg = "";
+            if (pathArr.length >= 3) {
+                msg = message.append(pathArr[pathArr.length - 1]).append(violation.getMessage()).toString();
+            } else {
+                msg = message.append(pathArr[1]).append(violation.getMessage()).toString();
+            }
+            errorList.add(msg);
+        }
+
         return R.failure().code(CommonErrorCode.INVALID_ARGUMENT.getCode())
-                .message(CommonErrorCode.INVALID_ARGUMENT.getMessage() + message);
+                .message(CommonErrorCode.INVALID_ARGUMENT.getMessage() + " "
+                        + CollUtil.join(errorList, ";"));
     }
 
 
     /**
-     * 处理 json 请求体调用接口对象参数校验失败抛出的异常
+     * post 请求 body JSON 参数
+     * 实体类JSON参数映射,单个参数验证失败异常
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public R jsonParamsException(MethodArgumentNotValidException e) {
         BindingResult bindingResult = e.getBindingResult();
-        String msg = ";";
+        List errorList = CollectionUtil.newArrayList();
 
         for (FieldError fieldError : bindingResult.getFieldErrors()) {
-            msg = String.format("%s%s；", fieldError.getField(), fieldError.getDefaultMessage()) + msg;
+            String msg = String.format("%s%s；", fieldError.getField(), fieldError.getDefaultMessage());
+            errorList.add(msg);
         }
+
         return R.failure().code(CommonErrorCode.INVALID_ARGUMENT.getCode())
-                .message(CommonErrorCode.INVALID_ARGUMENT.getMessage() + msg);
+                .message(CommonErrorCode.INVALID_ARGUMENT.getMessage() + " "
+                        + CollUtil.join(errorList, ";"));
     }
 
 
     /**
-     * 接口不存在
+     * 接口不存在 异常
      *
      * @param e
      * @return
@@ -117,28 +150,53 @@ public class GlobalExceptionHandler {
     }
 
     /**
+     * 请求与响应媒体类型不一致 异常
+     *
      * @param e
-     * @return Content-Type/Accept 异常
-     * application/json
-     * application/x-www-form-urlencoded
+     * @return
      */
     @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
     public R httpMediaTypeNotSupportedException(HttpMediaTypeNotSupportedException e) {
         return R.failure().code(CommonErrorCode.INVALID_REQUEST.getCode()).message(CommonErrorCode.INVALID_REQUEST.getMessage() + e.getMessage());
     }
 
+    /**
+     * post请求 缺少body json参数 异常
+     *
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public R HttpMessageNotReadableException(HttpMessageNotReadableException e) {
+        return R.failure().code(CommonErrorCode.INVALID_REQUEST.getCode()).message(CommonErrorCode.INVALID_REQUEST.getMessage() + e.getMessage() + " "
+                + "缺少body 请求JSON参数");
+    }
+
+
 
     /**
      * 自定义异常处理方法
-     *
+     */
+
+
+    /**
+     * 统一业务异常处理
      * @param e
      * @return
      */
     @ExceptionHandler(BusinessException.class)
     @ResponseBody
     public R error(BusinessException e) {
-        e.printStackTrace();
         return R.failure().code(e.getCode()).message(e.getMessage());
+    }
+
+
+
+
+    @ExceptionHandler(SignException.class)
+    @ResponseBody
+    public R SignException(SignException e) {
+        return R.failure().code(BusinessErrorCode.Sign_Error.getCode()).message(e.getMessage());
     }
 
 

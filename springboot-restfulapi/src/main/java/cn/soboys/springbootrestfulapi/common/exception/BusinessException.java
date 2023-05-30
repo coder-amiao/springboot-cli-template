@@ -1,7 +1,7 @@
 package cn.soboys.springbootrestfulapi.common.exception;
 
 
-import cn.soboys.springbootrestfulapi.common.resp.ResultSuccess;
+import cn.soboys.springbootrestfulapi.common.resp.ResultCode;
 import lombok.Data;
 
 /**
@@ -23,13 +23,13 @@ public class BusinessException extends RuntimeException {
         this.code = code;
     }
 
-    public BusinessException(ResultSuccess resultCodeEnum) {
+    public BusinessException(ResultCode resultCodeEnum) {
         super(resultCodeEnum.getMessage());
         this.code = resultCodeEnum.getCode();
     }
 
-    @Override
-    public String toString() {
-        return "BusinessException{code=" + code + ", message=" + this.getMessage() + '}';
+    public BusinessException(ResultCode resultCodeEnum, String msg) {
+        super(resultCodeEnum.getMessage() +" " +msg);
+        this.code = resultCodeEnum.getCode();
     }
 }

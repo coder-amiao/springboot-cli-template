@@ -1,8 +1,6 @@
 package cn.soboys.springbootrestfulapi.common.resp;
 
 import cn.hutool.core.date.DateUtil;
-import cn.soboys.springbootrestfulapi.common.error.ErrorDetail;
-import lombok.Data;
 import lombok.Getter;
 
 import java.util.HashMap;
@@ -13,7 +11,7 @@ import java.util.Map;
  * @version 1.0
  * @date 2023/4/28 22:47
  * @webSite https://github.com/coder-amiao
- * 统一响应结果处理返回工具类  使用链式编程 返回类本身
+ * 统一响应结果处理  使用链式编程 返回类本身
  */
 @Getter
 public class R {

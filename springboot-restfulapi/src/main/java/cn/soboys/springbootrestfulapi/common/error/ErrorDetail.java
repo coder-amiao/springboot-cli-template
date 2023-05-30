@@ -1,11 +1,11 @@
 package cn.soboys.springbootrestfulapi.common.error;
 import lombok.Data;
+
 /**
  * @author 公众号 程序员三时
  * @version 1.0
  * @date 2023/5/9 21:26
  * @webSite https://github.com/coder-amiao
- *  未知异常错误响应封装
  */
 @Data
 public class ErrorDetail {

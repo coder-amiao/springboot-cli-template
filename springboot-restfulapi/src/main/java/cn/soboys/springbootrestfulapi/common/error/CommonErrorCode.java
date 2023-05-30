@@ -1,5 +1,6 @@
 package cn.soboys.springbootrestfulapi.common.error;
 
+
 import cn.soboys.springbootrestfulapi.common.resp.ResultCode;
 
 /**
@@ -7,7 +8,6 @@ import cn.soboys.springbootrestfulapi.common.resp.ResultCode;
  * @version 1.0
  * @date 2023/5/2 21:36
  * @webSite https://github.com/coder-amiao
- * 通用公共错误枚举模块
  */
 public enum CommonErrorCode implements ResultCode {
 
@@ -26,7 +26,9 @@ public enum CommonErrorCode implements ResultCode {
     /**
      * 未知错误
      */
-    UNKNOWN_ERROR(false, CommonErrorConstant.UnknownError, "Unknown server internal error.");
+    UNKNOWN_ERROR(false, CommonErrorConstant.UnknownError, "Unknown server internal error."),
+
+    UNAUTHORIZED(false, CommonErrorConstant.UNAUTHORIZED, "Authorization failed");
 
 
     CommonErrorCode(Boolean success, String code, String message) {

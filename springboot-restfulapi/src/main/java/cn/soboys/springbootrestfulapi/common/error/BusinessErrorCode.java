@@ -1,22 +1,25 @@
-package cn.soboys.springbootrestfulapi.common.resp;
+package cn.soboys.springbootrestfulapi.common.error;
 
 
-import cn.soboys.springbootrestfulapi.common.error.CommonErrorConstant;
+import cn.soboys.springbootrestfulapi.common.resp.ResultCode;
 
 /**
  * @author 公众号 程序员三时
  * @version 1.0
- * @date 2023/4/28 22:39
+ * @date 2023/5/14 23:01
  * @webSite https://github.com/coder-amiao
- * 响应结果枚举
  */
-public enum ResultSuccess implements ResultCode {
+public enum BusinessErrorCode implements ResultCode {
+
+    Sign_Error(false, CommonErrorConstant.SignError, "接口签名认证无效 ");
 
 
-    SUCCESS(true, CommonErrorConstant.OK, "成功"),
+    BusinessErrorCode(Boolean success, String code, String message) {
+        this.success = success;
+        this.code = code;
+        this.message = message;
 
-    FAIL(false, CommonErrorConstant.FAIL, "请求失败");
-
+    }
 
     /**
      * 响应是否成功
@@ -30,7 +33,6 @@ public enum ResultSuccess implements ResultCode {
      * 响应信息
      */
     private String message;
-
 
     @Override
     public String getCode() {
@@ -48,9 +50,4 @@ public enum ResultSuccess implements ResultCode {
     }
 
 
-    ResultSuccess(Boolean success, String code, String message) {
-        this.success = success;
-        this.code = code;
-        this.message = message;
-    }
 }

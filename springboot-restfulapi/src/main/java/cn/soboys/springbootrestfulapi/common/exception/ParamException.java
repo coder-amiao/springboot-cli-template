@@ -7,6 +7,7 @@ package cn.soboys.springbootrestfulapi.common.exception;
  * @webSite https://github.com/coder-amiao
  * 参数错误异常
  */
-public class ParamException extends RuntimeException {
+public class ParamException  {
+
 
 }

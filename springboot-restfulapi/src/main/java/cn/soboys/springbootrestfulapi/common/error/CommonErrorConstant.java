@@ -1,7 +1,5 @@
 package cn.soboys.springbootrestfulapi.common.error;
 
-import java.util.List;
-
 /**
  * @author 公众号 程序员三时
  * @version 1.0
@@ -19,12 +17,16 @@ public interface CommonErrorConstant {
     public static final String UnknownError = "UnknownError";
     public static final String OK = "OK";
     public static final String FAIL = "FAIL";
+    public static final String UNAUTHORIZED = "UNAUTHORIZED";
 
 
 
     /**
      * 其他自定义业务错误码
      */
+
+    public static final String SignError = "SignError";
+    public static final String API_ERROR = "apiError";
 
 
 
