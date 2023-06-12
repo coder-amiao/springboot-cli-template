@@ -4,11 +4,12 @@ package cn.soboys.springbootrestfulapi.common.exception;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.soboys.springbootrestfulapi.common.error.BusinessErrorCode;
 import cn.soboys.springbootrestfulapi.common.error.CommonErrorCode;
 import cn.soboys.springbootrestfulapi.common.error.ErrorDetail;
 import cn.soboys.springbootrestfulapi.common.resp.R;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
@@ -39,6 +40,7 @@ import java.util.stream.Collectors;
  * 统一异常处理器
  */
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     /**
@@ -48,7 +50,7 @@ public class GlobalExceptionHandler {
      **/
     @ExceptionHandler(Exception.class)
     public ErrorDetail exception(Exception e, WebRequest request) {
-        e.printStackTrace();
+        log.error("系统未知错误{}", ExceptionUtil.stacktraceToString(e));
         ErrorDetail errorDetail = new ErrorDetail();
         errorDetail.setDetails(request.getDescription(true));
         errorDetail.setErrorMsg(e.getMessage());
@@ -173,7 +175,6 @@ public class GlobalExceptionHandler {
     }
 
 
-
     /**
      * 自定义异常处理方法
      */
@@ -181,22 +182,14 @@ public class GlobalExceptionHandler {
 
     /**
      * 统一业务异常处理
+     *
      * @param e
      * @return
      */
     @ExceptionHandler(BusinessException.class)
     @ResponseBody
-    public R error(BusinessException e) {
-        return R.failure().code(e.getCode()).message(e.getMessage());
-    }
-
-
-
-
-    @ExceptionHandler(SignException.class)
-    @ResponseBody
-    public R SignException(SignException e) {
-        return R.failure().code(BusinessErrorCode.Sign_Error.getCode()).message(e.getMessage());
+    public R error(BaseException e) {
+        return R.failure().code(e.getResultCode().getCode()).message(e.getMessage());
     }
 
 

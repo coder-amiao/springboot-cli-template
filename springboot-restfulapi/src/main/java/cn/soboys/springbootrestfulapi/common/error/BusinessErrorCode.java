@@ -1,6 +1,7 @@
 package cn.soboys.springbootrestfulapi.common.error;
 
 
+import cn.soboys.springbootrestfulapi.common.exception.assertion.BusinessExceptionAssert;
 import cn.soboys.springbootrestfulapi.common.resp.ResultCode;
 
 /**
@@ -9,9 +10,9 @@ import cn.soboys.springbootrestfulapi.common.resp.ResultCode;
  * @date 2023/5/14 23:01
  * @webSite https://github.com/coder-amiao
  */
-public enum BusinessErrorCode implements ResultCode {
+public enum BusinessErrorCode implements BusinessExceptionAssert {
 
-    Sign_Error(false, CommonErrorConstant.SignError, "接口签名认证无效 ");
+    Sign_Error(false, CommonErrorConstant.SignError, "接口签名认证无效 {0}");
 
 
     BusinessErrorCode(Boolean success, String code, String message) {

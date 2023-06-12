@@ -14,7 +14,7 @@ import java.util.Map;
  * 统一响应结果处理  使用链式编程 返回类本身
  */
 @Getter
-public class R {
+public class R<T> {
 
     private Boolean success;
 
@@ -29,7 +29,9 @@ public class R {
     private String timestamp;
 
 
-    private Map<String, Object> data = new HashMap<>();
+    private Map<String, T> data = new HashMap<>();
+
+
 
 
     private R setSuccess(Boolean success) {
@@ -44,7 +46,7 @@ public class R {
     }
 
 
-    private R setData(Map<String, Object> data) {
+    private R setData(Map<String, T> data) {
         this.data = data;
         return this;
     }
@@ -63,16 +65,22 @@ public class R {
 
 
     // 自定义返回数据
-    public R data(Map<String, Object> map) {
+    public R data(Map<String, T> map) {
         return this.setData(map);
 
     }
 
     // 通用设置data
-    public R data(String key, Object value) {
+    public R data(String key, T value) {
         this.data.put(key, value);
         return this;
     }
+    // 通用设置data
+    public R data(T value) {
+        this.data.put("content", value);
+        return this;
+    }
+
 
     // 自定义状态信息
     public R message(String message) {

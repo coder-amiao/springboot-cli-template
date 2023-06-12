@@ -1,6 +1,8 @@
 package cn.soboys.springbootrestfulapi.controller;
 
 
+
+import cn.soboys.springbootrestfulapi.common.error.BusinessErrorCode;
 import cn.soboys.springbootrestfulapi.common.resp.R;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +26,7 @@ import java.util.Map;
 public class IndexController {
 
     @GetMapping("/index")
-    public R index(@NotBlank(message = "用户名不能为空") String  userName) {
+    public R index() {
         Map m = new HashMap();
         m.put("name", "Tom");
         m.put("age", 25);
@@ -34,7 +36,7 @@ public class IndexController {
 
 
     @GetMapping("/home")
-    public R home() {
+    public Student home() {
 
         Student s = new Student();
         s.setUserName("Tom");
@@ -46,8 +48,7 @@ public class IndexController {
         s.setHobby(hobby);
         s.setBalance(2229891.0892);
         s.setIdCard("420222199811207237");
-
-        return R.success().data("item", s).message("查询用户详情信息");
+        return s;
     }
 
     /**
@@ -56,8 +57,9 @@ public class IndexController {
      * @return
      */
     @GetMapping("/exception")
-    public R exception() {
-        int a=4/0;
-        return R.success().data("user", a).message("查询用户详情信息");
+    public Student  exception() {
+        Student s = null;
+        BusinessErrorCode.Sign_Error.assertNotNull(s,"secret秘钥不正确");
+        return s;
     }
 }
