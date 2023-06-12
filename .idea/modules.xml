@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/springboot-cli-template.iml" filepath="$PROJECT_DIR$/springboot-cli-template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-restfulapi/springboot-restfulapi.iml" filepath="$PROJECT_DIR$/springboot-restfulapi/springboot-restfulapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-websocket-im/springboot-websocket-im.iml" filepath="$PROJECT_DIR$/springboot-websocket-im/springboot-websocket-im.iml" />
+    </modules>
+  </component>
+</project>
