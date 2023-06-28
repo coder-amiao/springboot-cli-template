@@ -1,2 +1,2 @@
 # springboot-cli-template
-整合 springboot  所有脚手架项目，能够达到开箱即用工具
+ Springboot与其他框架整合案例·Demo入门学习。
