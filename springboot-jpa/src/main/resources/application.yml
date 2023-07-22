@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/rest-admin?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      idle-timeout: 600000
+      max-life-time: 1800000
+
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+      ddl-auto: update # 控制是否可以基于程序中Entity的定义自动创建或者修改DB中表结构
+    show-sql: true #控制是否打印运行时的SQL语句与参数信息
+    database-platform: org.hibernate.dialect.MySQLDialect  #数据库方言
+server:
+  port: 9999
+
+#分组
+springdoc:
+  group-configs:
+    - { group: 'rest-cms', packages-to-scan: 'cn.soboys.springbootjpa.controller' }
+
+rest-api:
+  json:
+    number-form: '.00'
+    date-form: yyyy-MM-dd HH:mm:ss.SSS
+    null-able:
+      has-null-able: true
+
