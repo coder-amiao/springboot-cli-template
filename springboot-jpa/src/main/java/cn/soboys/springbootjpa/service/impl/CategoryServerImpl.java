@@ -1,7 +1,7 @@
 package cn.soboys.springbootjpa.service.impl;
 
+import cn.soboys.simplestjpa.ServiceImpl;
 import cn.soboys.springbootjpa.entity.Category;
-import cn.soboys.springbootjpa.jpa.ServiceImpl;
 import cn.soboys.springbootjpa.repository.CategoryRepository;
 import cn.soboys.springbootjpa.service.ICategoryService;
 import org.springframework.stereotype.Service;

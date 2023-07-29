@@ -1,0 +1,187 @@
+2023-07-23 15:58:45 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Starting JpaTest using Java 1.8.0_362 on xiangyongdembp with PID 46811 (started by xiangyong in /Users/xiangyong/selfProject/springboot-cli-template/springboot-jpa)
+2023-07-23 15:58:45 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest No active profile set, falling back to 1 default profile: "default"
+2023-07-23 15:58:45 INFO  background-preinit org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 6.2.5.Final
+2023-07-23 15:58:47 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 15:58:47 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-23 15:58:47 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 271 ms. Found 1 JPA repository interfaces.
+2023-07-23 15:58:47 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 15:58:47 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-23 15:58:47 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data Redis - Could not safely identify store assignment for repository candidate interface cn.soboys.springbootjpa.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-07-23 15:58:47 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-07-23 15:58:48 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-23 15:58:49 INFO  main org.hibernate.Version HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-07-23 15:58:49 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-23 15:58:49 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2023-07-23 15:58:49 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2023-07-23 15:58:49 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-07-23 15:58:51 INFO  main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-23 15:58:51 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 15:58:51 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 15:58:51 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2023-07-23 15:58:51 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2023-07-23 15:58:51 INFO  main org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-23 15:59:56 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Starting JpaTest using Java 1.8.0_362 on xiangyongdembp with PID 47068 (started by xiangyong in /Users/xiangyong/selfProject/springboot-cli-template/springboot-jpa)
+2023-07-23 15:59:56 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest No active profile set, falling back to 1 default profile: "default"
+2023-07-23 15:59:56 INFO  background-preinit org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 6.2.5.Final
+2023-07-23 15:59:58 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 15:59:58 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-23 15:59:58 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 283 ms. Found 1 JPA repository interfaces.
+2023-07-23 15:59:58 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 15:59:58 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-23 15:59:58 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data Redis - Could not safely identify store assignment for repository candidate interface cn.soboys.springbootjpa.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-07-23 15:59:58 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2023-07-23 16:00:00 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-23 16:00:00 INFO  main org.hibernate.Version HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-07-23 16:00:00 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-23 16:00:00 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2023-07-23 16:00:00 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2023-07-23 16:00:00 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-07-23 16:00:01 INFO  main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-23 16:00:01 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:00:02 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:00:02 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2023-07-23 16:00:02 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2023-07-23 16:00:02 INFO  main org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-23 16:02:48 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Starting JpaTest using Java 1.8.0_362 on xiangyongdembp with PID 47604 (started by xiangyong in /Users/xiangyong/selfProject/springboot-cli-template/springboot-jpa)
+2023-07-23 16:02:48 INFO  background-preinit org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 6.2.5.Final
+2023-07-23 16:02:48 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest No active profile set, falling back to 1 default profile: "default"
+2023-07-23 16:02:49 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:02:49 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-23 16:02:49 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 195 ms. Found 1 JPA repository interfaces.
+2023-07-23 16:02:49 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:02:49 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-23 16:02:49 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data Redis - Could not safely identify store assignment for repository candidate interface cn.soboys.springbootjpa.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-07-23 16:02:49 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2023-07-23 16:02:51 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-23 16:02:51 INFO  main org.hibernate.Version HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-07-23 16:02:51 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-23 16:02:51 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2023-07-23 16:02:51 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2023-07-23 16:02:51 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-07-23 16:02:53 INFO  main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-23 16:02:53 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:02:53 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:02:53 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2023-07-23 16:02:53 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2023-07-23 16:02:53 INFO  main org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-23 16:08:08 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Starting JpaTest using Java 1.8.0_362 on xiangyongdembp with PID 48617 (started by xiangyong in /Users/xiangyong/selfProject/springboot-cli-template/springboot-jpa)
+2023-07-23 16:08:08 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest No active profile set, falling back to 1 default profile: "default"
+2023-07-23 16:08:08 INFO  background-preinit org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 6.2.5.Final
+2023-07-23 16:08:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:08:09 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-23 16:08:10 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 270 ms. Found 1 JPA repository interfaces.
+2023-07-23 16:08:10 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:08:10 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-23 16:08:10 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data Redis - Could not safely identify store assignment for repository candidate interface cn.soboys.springbootjpa.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-07-23 16:08:10 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+2023-07-23 16:08:11 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-23 16:08:11 INFO  main org.hibernate.Version HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-07-23 16:08:12 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-23 16:08:12 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2023-07-23 16:08:12 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2023-07-23 16:08:12 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-07-23 16:08:14 INFO  main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-23 16:08:14 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:08:14 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:08:14 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2023-07-23 16:08:14 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2023-07-23 16:08:14 INFO  main org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-23 16:22:02 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Starting JpaTest using Java 1.8.0_362 on xiangyongdembp with PID 51244 (started by xiangyong in /Users/xiangyong/selfProject/springboot-cli-template/springboot-jpa)
+2023-07-23 16:22:02 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest No active profile set, falling back to 1 default profile: "default"
+2023-07-23 16:22:02 INFO  background-preinit org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 6.2.5.Final
+2023-07-23 16:22:04 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:22:04 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-23 16:22:04 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 240 ms. Found 1 JPA repository interfaces.
+2023-07-23 16:22:04 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:22:04 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-23 16:22:04 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data Redis - Could not safely identify store assignment for repository candidate interface cn.soboys.springbootjpa.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-07-23 16:22:04 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2023-07-23 16:22:06 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-23 16:22:06 INFO  main org.hibernate.Version HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-07-23 16:22:06 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-23 16:22:06 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2023-07-23 16:22:06 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2023-07-23 16:22:06 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-07-23 16:22:08 INFO  main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-23 16:22:08 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:22:12 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Started JpaTest in 10.44 seconds (JVM running for 12.099)
+2023-07-23 16:22:31 INFO  SpringApplicationShutdownHook org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:22:31 INFO  SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2023-07-23 16:22:31 INFO  SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2023-07-23 16:24:44 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Starting JpaTest using Java 1.8.0_362 on xiangyongdembp with PID 51742 (started by xiangyong in /Users/xiangyong/selfProject/springboot-cli-template/springboot-jpa)
+2023-07-23 16:24:44 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest No active profile set, falling back to 1 default profile: "default"
+2023-07-23 16:24:44 INFO  background-preinit org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 6.2.5.Final
+2023-07-23 16:24:46 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:24:46 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-23 16:24:46 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 451 ms. Found 1 JPA repository interfaces.
+2023-07-23 16:24:46 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:24:46 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-23 16:24:46 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data Redis - Could not safely identify store assignment for repository candidate interface cn.soboys.springbootjpa.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-07-23 16:24:46 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2023-07-23 16:24:47 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-23 16:24:48 INFO  main org.hibernate.Version HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-07-23 16:24:48 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-23 16:24:48 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2023-07-23 16:24:48 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2023-07-23 16:24:48 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-07-23 16:24:50 INFO  main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-23 16:24:50 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:24:53 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Started JpaTest in 10.615 seconds (JVM running for 12.535)
+2023-07-23 16:26:38 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest 更新
+2023-07-23 16:26:38 INFO  SpringApplicationShutdownHook org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:26:38 INFO  SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2023-07-23 16:26:38 INFO  SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2023-07-23 16:27:42 INFO  background-preinit org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 6.2.5.Final
+2023-07-23 16:27:42 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Starting JpaTest using Java 1.8.0_362 on xiangyongdembp with PID 52295 (started by xiangyong in /Users/xiangyong/selfProject/springboot-cli-template/springboot-jpa)
+2023-07-23 16:27:42 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest No active profile set, falling back to 1 default profile: "default"
+2023-07-23 16:27:43 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:27:43 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-23 16:27:44 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 287 ms. Found 1 JPA repository interfaces.
+2023-07-23 16:27:44 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:27:44 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-23 16:27:44 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data Redis - Could not safely identify store assignment for repository candidate interface cn.soboys.springbootjpa.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-07-23 16:27:44 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2023-07-23 16:27:45 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-23 16:27:46 INFO  main org.hibernate.Version HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-07-23 16:27:46 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-23 16:27:46 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2023-07-23 16:27:46 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2023-07-23 16:27:46 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-07-23 16:27:48 INFO  main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-23 16:27:48 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:27:52 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Started JpaTest in 11.17 seconds (JVM running for 13.771)
+2023-07-23 16:28:23 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest 更新
+2023-07-23 16:28:24 INFO  SpringApplicationShutdownHook org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:28:24 INFO  SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2023-07-23 16:28:24 INFO  SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.
+2023-07-23 16:29:13 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Starting JpaTest using Java 1.8.0_362 on xiangyongdembp with PID 52594 (started by xiangyong in /Users/xiangyong/selfProject/springboot-cli-template/springboot-jpa)
+2023-07-23 16:29:13 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest No active profile set, falling back to 1 default profile: "default"
+2023-07-23 16:29:13 INFO  background-preinit org.hibernate.validator.internal.util.Version HV000001: Hibernate Validator 6.2.5.Final
+2023-07-23 16:29:14 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:29:14 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-23 16:29:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 240 ms. Found 1 JPA repository interfaces.
+2023-07-23 16:29:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-23 16:29:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-23 16:29:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport Spring Data Redis - Could not safely identify store assignment for repository candidate interface cn.soboys.springbootjpa.repository.CategoryRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2023-07-23 16:29:15 INFO  main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2023-07-23 16:29:16 INFO  main org.hibernate.jpa.internal.util.LogHelper HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-23 16:29:16 INFO  main org.hibernate.Version HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-07-23 16:29:16 INFO  main org.hibernate.annotations.common.Version HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-23 16:29:16 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Starting...
+2023-07-23 16:29:17 INFO  main com.zaxxer.hikari.HikariDataSource HikariPool-1 - Start completed.
+2023-07-23 16:29:17 INFO  main org.hibernate.dialect.Dialect HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-07-23 16:29:18 INFO  main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-23 16:29:18 INFO  main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:29:22 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest Started JpaTest in 9.311 seconds (JVM running for 11.014)
+2023-07-23 16:29:30 INFO  main cn.soboys.springbootjpa.JpaQueryDSLTest 更新
+2023-07-23 16:29:30 INFO  SpringApplicationShutdownHook org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-23 16:29:30 INFO  SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown initiated...
+2023-07-23 16:29:30 INFO  SpringApplicationShutdownHook com.zaxxer.hikari.HikariDataSource HikariPool-1 - Shutdown completed.

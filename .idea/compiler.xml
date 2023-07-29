@@ -8,12 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot-websocket-im" />
+        <module name="springboot-mybatis-flex" />
         <module name="springboot-jpa" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="springboot-cli-template" target="1.8" />
       <module name="springboot-jpa" target="1.8" />
+      <module name="springboot-mybatis-flex" target="1.8" />
       <module name="springboot-restfulapi" target="1.8" />
       <module name="springboot-websocket-im" target="1.8" />
     </bytecodeTargetLevel>
@@ -22,6 +24,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="springboot-cli-template" options="-parameters" />
       <module name="springboot-jpa" options="-parameters" />
+      <module name="springboot-mybatis-flex" options="-parameters" />
       <module name="springboot-restfulapi" options="-parameters" />
       <module name="springboot-websocket-im" options="-parameters" />
     </option>

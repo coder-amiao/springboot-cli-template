@@ -1,15 +1,23 @@
 package cn.soboys.springbootjpa.controller;
 
-
 import cn.soboys.restapispringbootstarter.Result;
-import cn.soboys.springbootjpa.entity.Category;
-import cn.soboys.springbootjpa.service.ICategoryService;
+
+import cn.soboys.springbootjpa.bean.Category;
+import cn.soboys.springbootjpa.bean.table.CategoryTableDef;
+import cn.soboys.springbootjpa.mapper.CategoryMapper;
+import com.mybatisflex.core.query.QueryWrapper;
+import com.mybatisflex.processor.entity.TableInfo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static cn.soboys.springbootjpa.bean.table.CategoryTableDef.CATEGORY;
 
 /**
  * @author 公众号 程序员三时
@@ -24,14 +32,13 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class CategoryController {
 
-    private final ICategoryService categoryService;
+    private final CategoryMapper categoryMapper;
 
 
-    @GetMapping("/add")
-    public Result addCategory() {
-        Category category = new Category();
-        //category.setTitle("jpa");
-        categoryService.save(category);
+    @GetMapping("/test")
+    public Result test() {
+        QueryWrapper queryWrapper=new QueryWrapper();
+        queryWrapper.select(Category::getTitle).from(Category.class);
         return Result.buildSuccess();
     }
 

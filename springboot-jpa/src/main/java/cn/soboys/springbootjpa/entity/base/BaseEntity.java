@@ -18,7 +18,7 @@ import java.util.Date;
 @Data
 @MappedSuperclass
 @EntityListeners(value = AuditingEntityListener.class)
-public abstract class BaseEntity {
+public abstract class BaseEntity extends BaseObj {
 
     @CreatedDate
     private Date createTime;

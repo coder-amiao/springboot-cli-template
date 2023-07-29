@@ -24,6 +24,7 @@ public class Category extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     /**
      * 标题
      */
@@ -67,6 +68,14 @@ public class Category extends BaseEntity {
             joinColumns = @JoinColumn(name = "resource_id"),
             inverseJoinColumns = @JoinColumn(name = "module_id"))
     private Set<Module> modules=new HashSet<>();
+
+
+    /**
+     * 额外其他属性
+     * @Transient 解绑和数据联系。属于实体类属性
+     */
+    @Transient
+    private String other;
 
 
 }

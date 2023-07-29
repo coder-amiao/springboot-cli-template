@@ -1,11 +1,8 @@
 package cn.soboys.springbootjpa.repository;
 
+import cn.soboys.simplestjpa.BaseRepository;
 import cn.soboys.springbootjpa.entity.Category;
-import cn.soboys.springbootjpa.jpa.BaseRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * @author 公众号 程序员三时
@@ -15,6 +12,7 @@ import java.util.List;
  * 数据库 dao层。
  */
 @Repository
-public interface CategoryRepository extends BaseRepository<Category,Long> {
+public interface CategoryRepository extends BaseRepository<Category, Long> {
+
 
 }
