@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springboot-websocket-im" />
-        <module name="springboot-mybatis-flex" />
         <module name="springboot-jpa" />
       </profile>
     </annotationProcessing>

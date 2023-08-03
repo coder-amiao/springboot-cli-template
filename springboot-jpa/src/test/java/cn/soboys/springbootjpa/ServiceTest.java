@@ -1,6 +1,7 @@
 package cn.soboys.springbootjpa;
 
 import cn.soboys.simplestjpa.UpdateWrapper;
+import cn.soboys.simplestjpa.plugin.CustomTenant;
 import cn.soboys.springbootjpa.entity.Category;
 import cn.soboys.springbootjpa.entity.QCategory;
 import cn.soboys.springbootjpa.entity.dto.QTitleVo;
@@ -39,8 +40,9 @@ public class ServiceTest {
 
     @Test
     void countByExample() {
+        CustomTenant.withoutTenantCondition=true; //自定义不设置租户拦截
         Category category = new Category();
-        //category.setTitle("测试");
+        category.setTitle("测试");
         long count = categoryService.count(Example.of(category));
         log.info("条件count{}", count);
     }

@@ -23,6 +23,9 @@ spring:
       hibernate:
         enable_lazy_load_no_trans: true  # https://stackoverflow.com/questions/46259878/org-hibernate-lazyinitializationexception-failed-to-lazily-initialize-a-collect
         #加载获取异常问题
+        session_factory:
+          statement_inspector: cn.soboys.simplestjpa.interceptor.TenantInterceptor
+
 
 server:
   port: 9999
@@ -42,4 +45,10 @@ rest-api:
       array-type: array # 处理集合空返回 []
       double-type: double # 处理double 类型空返回 "0.00"
 
+# 需进行租户配置
+tenant:
+  tables:
+    - cms_category
+  tenant-id-column: id
+  enable-tenant: true
 

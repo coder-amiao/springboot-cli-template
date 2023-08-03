@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/springboot-cli-template.iml" filepath="$PROJECT_DIR$/springboot-cli-template.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-jpa/springboot-jpa.iml" filepath="$PROJECT_DIR$/springboot-jpa/springboot-jpa.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-mybatis-flex/springboot-mybatis-flex.iml" filepath="$PROJECT_DIR$/springboot-mybatis-flex/springboot-mybatis-flex.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-websocket-im/springboot-websocket-im.iml" filepath="$PROJECT_DIR$/springboot-websocket-im/springboot-websocket-im.iml" />
     </modules>
   </component>
